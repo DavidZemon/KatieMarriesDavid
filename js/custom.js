@@ -684,7 +684,7 @@ if (!Array.prototype.indexOf) {
         /* Simple Countdown Timer - change belows date to specific one you want.
         ==================================================================================== */
         if($("#countdown").length) {
-            CountDownTimer('12/08/2015 12:00 AM', 'countdown');
+            CountDownTimer('05/14/2016 4:00 PM', 'countdown');
         }
         function CountDownTimer(dt, id) {
             var end = new Date(dt);
