@@ -154,10 +154,10 @@
 
               <div class="story">
                 <p>David was born in St. Louis, MO to Bonnie Whitfield and Art Zemon.
-                  In third grade, he swam for the SCCY Stingrays under Mary O'Mara. He participated on the team year-round
-                  for nine years, at which point the team was like a second family to him.
-                  He is also a car enthusiast, specifically Volvo, Saab and Koenigsegg. In his spare time he loves developing
-                  low-level software. He attended Missouri S&T and earned his B.S. in Computer Engineering.
+                  In third grade, he swam for the SCCY Stingrays under Mary O'Mara. He participated on the team
+                  year-round for nine years, at which point the team was like a second family to him.
+                  He is also a car enthusiast, specifically Volvo, Saab and Koenigsegg. In his spare time he loves
+                  developing low-level software. He attended Missouri S&T and earned his B.S. in Computer Engineering.
                 </p>
               </div>
               <div class="social">
@@ -179,10 +179,10 @@
                 <div class="corners-bottomleft"></div>
                 <div class="corners-topright"></div>
                 <div class="corners-bottomright"></div>
-                <p>We met one sad, winter day in Dr. Stressful's class. It was incredibly boring, Katie was failing her
-                class and David came to the rescue. With his glistening hair and trusty laptop, we were able to
-                escape Circuits 1 with GPAs unscathed. Our bond grew with time and, in the Spring of 2014, David gave
-                Katie a shiny rock and Katie gave David a "Yes!"</p>
+                <p>We met one cold, winter day in Dr. Stressful's class. It was boring, Katie was failing and David
+                  came to the rescue. With his radiant smile and trusty laptop, we were able to
+                  escape Circuits 1 with GPAs unscathed. Our bond grew with time and, in the Spring of 2014, David gave
+                  Katie a shiny rock and Katie gave David a "Yes!"</p>
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@
       <section class="parallax" data-type="parallax">
         <div class="overlay"></div>
         <div class="container">
-          <h2 class="quote">“With his glistening hair and trusty laptop, we were able to escape Circuits 1 with GPAs
+          <h2 class="quote">“With his radiant smile and trusty laptop, we were able to escape Circuits 1 with GPAs
             unscathed.”</h2>
         </div>
       </section>
@@ -222,7 +222,7 @@
                   <span class="waddress">Ashland Place United Methodist Church</span>
                   <span class="waddress">15 Westeria Ave, Mobile, AL 36607</span>
                   <span class="wdate">Saturday, 14 May 2016</span>
-                  <span class="wtime">4:00 PM - 5:00 PM</span>
+                  <span class="wtime">4:00 PM</span>
                 </div>
               </div>
             </div>
@@ -237,7 +237,7 @@
                 <div class="details">
                   <span class="waddress">910 Government St, Mobile, AL</span>
                   <span class="wdate">Saturday, 14 May 2016</span>
-                  <span class="wtime">5:00 PM - 9:00 PM</span>
+                  <span class="wtime">Immediately following ceremony</span>
                 </div>
               </div>
             </div>
@@ -371,6 +371,7 @@
       <section id="wedding-gallery" class="pattern">
         <header class="section-header">
           <h3 class="section-title">Photo Gallery</h3>
+
           <p class="section-tagline">Click any photo to enlarge.
             <br>Check back later for wedding and honeymoon photos.</p>
         </header>
@@ -511,13 +512,12 @@
                 <div class="column six">
                   <label for="persons">Number of guests</label>
                   <select name="persons" id="persons">
-                    <option value="One" disabled selected="selected"> How many people?</option>
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
-                    <option value="Four">Four</option>
-                    <option value="Five">Five</option>
-                    <option value="Six">Six</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
                   </select>
                 </div>
                 <div class="column six auto-safe">
@@ -525,10 +525,24 @@
                   <input type="text" id="autovalue" name="autovalue">
                   <i class="fa fa-refresh auto-refresh" title="Reload security question"></i>
                 </div>
+                <div class="column six">
+                  <label for="food">Food Preference</label>
+                  <select name="food" id="food">
+                    <!-- TODO: Add fancy thing on "entree" -->
+                    <option selected="selected">Select your entree</option>
+                    <option value="vege">Vegetarian</option>
+                    <option value="meat">Non-vegetarian</option>
+                  </select>
+                </div>
                 <div class="clearfix"></div>
-                <input type="hidden" name="submit">
-                <input type="submit" value="I am attending &rarr;">
-
+                <div>
+                  <div class="column six">
+                    <input type="submit" value="Decline with regret">
+                  </div>
+                  <div class="column six">
+                    <input type="submit" value="Accept with pleasure">
+                  </div>
+                </div>
                 <div class="clearfix"></div>
               </form>
             </div>

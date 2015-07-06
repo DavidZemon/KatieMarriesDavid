@@ -193,18 +193,14 @@ section section {
     height: 80px;
 }
 .pattern, #wedding-events .timeline .column.heart:after {
-    background-color: #faf8f0;
-    background-image: url(../images/bgs/BG-halftone.png);
-    background-repeat: repeat;
+  background: #faf8f0 url(../images/bgs/BG-halftone.png) repeat;
 }
 .box.pattern {
     background-color: #faf8f0;
     background-image: none!important;
 }
 .bgcolor {
-    background-color: #FF8C89;
-    background-image: url(../images/bgs/BG-halftone.png);
-    background-repeat: repeat;
+  background: #FF8C89 url(../images/bgs/BG-halftone.png) repeat;
 }
 
 .no-video {
@@ -298,9 +294,9 @@ a.button {
     background-color: #faf8f0;
     padding: 2px 20px;
     border-radius: 50px;
-    -webkit-box-shadow: 0px 3px 0px #D9C6B1;
-    -moz-box-shadow: 0px 3px 0px #D9C6B1;
-    box-shadow: 0px 3px 0px #D9C6B1;
+    -webkit-box-shadow: 0 3px 0 #D9C6B1;
+    -moz-box-shadow: 0 3px 0 #D9C6B1;
+    box-shadow: 0 3px 0 #D9C6B1;
     font-size: 14px;
     font-weight: 700;
     margin: 5px;
@@ -309,9 +305,9 @@ a.button {
     transition: all 0.1s;
 }
 a.button:active {
-    -webkit-box-shadow: 0px 0px 0px #D9C6B1;
-    -moz-box-shadow: 0px 0px 0px #D9C6B1;
-    box-shadow: 0px 0px 0px #D9C6B1;
+    -webkit-box-shadow: 0 0 0 #D9C6B1;
+    -moz-box-shadow: 0 0 0 #D9C6B1;
+    box-shadow: 0 0 0 #D9C6B1;
     top: 2px;
 }
 a.button.fill {
@@ -391,7 +387,7 @@ a.button i {
 .timeline-year {
     position: relative;
     text-align: center;
-    margin: 0px 0 30px 0;
+    margin: 0 0 30px 0;
 }
 .timeline-year.start {
     margin-top: 60px;
@@ -534,7 +530,7 @@ a.button i {
     height: 100%;
 }
 .queryloader__overlay__bar {
-    top: 0px !important;
+    top: 0 !important;
 }
 #qLpercentage {
     line-height: 46px;
@@ -605,8 +601,8 @@ a.button i {
 
 .loaderOverlay {
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 1000;
@@ -763,12 +759,11 @@ a.button i {
     transform: translateZ(0);
 }
 .hero .hero-slideshow .slide {
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: cover;
+  background: no-repeat top left;
+  background-size: cover;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
 }
@@ -1050,7 +1045,7 @@ a.button i {
 }
 #main-menu li.submenu:after {
 	position: absolute;
-	right: 0px;
+	right: 0;
 	top: 0;
     content: '\f107';
     font-family: 'FontAwesome';
@@ -1206,13 +1201,12 @@ a.button i {
 #couple .images > div {
     position: relative;
     overflow: hidden;
-    background-position: center center;
-    -webkit-background-size: cover;
+  -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
-    height: 380px;
+  background: no-repeat center center;
+  height: 380px;
     margin-bottom: 0;
 }
 #couple .hero-heart {
@@ -1391,7 +1385,7 @@ a.button i {
     height: 45px;
     background: url(../images/elements/corner-default.png);
     top: 0;
-    left: 0px;
+    left: 0;
     -ms-transform: rotate(270deg);
     /* IE 9 */
 
@@ -1777,68 +1771,6 @@ a.button i {
     top: 76px;
 }
 /* ===========================================================
-    16.  Instagram
-============================================================ */
-
-#instagram-section {
-    text-align: center;
-}
-#instagram-section h3.section-title:before {
-    content: "\e00e";
-    font-size: 44px;
-}
-#instagram-section .section-tagline {
-    margin-bottom: 60px;
-}
-#instagram-section .hash {
-    display: inline-block;
-    margin-bottom: 50px;
-    border-radius: 6px;
-    background-color: #fff;
-    padding: 15px 25px;
-    color: #FF8C89;
-    font-size: 25px;
-}
-#instagram-section img {
-    margin: 20px;
-    width: 110px;
-    border-radius: 50%;
-}
-.instagram-images {
-    margin: auto;
-    max-width: 770px;
-    font-size: 0px;
-}
-/* ===========================================================
-    17.  GuestBook
-============================================================ */
-
-#guestbook h3.section-title:before {
-    font-size: 72px;
-    margin-left: -35px;
-    content: "\e002";
-}
-#guestbook .guest {
-    position: relative;
-}
-#guestbook .name {
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-}
-#guestbook img {
-    display: block;
-    margin: auto;
-    max-width: 60px;
-    margin-bottom: 10px;
-}
-#guestbook .timeline {
-    padding-bottom: 40px;
-}
-#guestbook .form {
-    margin-top: 40px;
-}
-/* ===========================================================
     18.  Contact
 ============================================================ */
 
@@ -1880,9 +1812,9 @@ select {
     padding: 15px 40px;
     border-radius: 45px;
     color: #FF8C89;
-    -webkit-box-shadow: 0px 3px 0px #D9C6B1;
-    -moz-box-shadow: 0px 3px 0px #D9C6B1;
-    box-shadow: 0px 3px 0px #D9C6B1;
+    -webkit-box-shadow: 0 3px 0 #D9C6B1;
+    -moz-box-shadow: 0 3px 0 #D9C6B1;
+    box-shadow: 0 3px 0 #D9C6B1;
     margin: 30px auto 0 auto;
     font-weight: 700;
     font-size: 15px;
@@ -1893,9 +1825,9 @@ select {
     border: none;
 }
 .form input[type="submit"]:active {
-    -webkit-box-shadow: 0px 0px 0px #D9C6B1;
-    -moz-box-shadow: 0px 0px 0px #D9C6B1;
-    box-shadow: 0px 0px 0px #D9C6B1;
+    -webkit-box-shadow: 0 0 0 #D9C6B1;
+    -moz-box-shadow: 0 0 0 #D9C6B1;
+    box-shadow: 0 0 0 #D9C6B1;
     top: 2px;
 }
 .form input[type="submit"].color {
@@ -1955,7 +1887,7 @@ select {
     pointer-events: none;
     top: 31px;
     z-index: 10;
-    padding: 4px 0px;
+    padding: 4px 0;
     right: 25px;
     line-height: 48px;
     font-size: 34px;
@@ -1997,13 +1929,12 @@ select {
 }
 #map-pins li {
     padding-left: 34px;
-    background-image: url(../images/map/MapIcons-red1.png);
-    background-repeat: no-repeat;
-    height: 32px;
+  background: url(../images/map/MapIcons-red1.png) no-repeat;
+  height: 32px;
     margin-bottom: 3px;
 }
 #map-pins li.bachelor {
-    background-position: 0 0px;
+    background-position: 0 0;
 }
 #map-pins li.bachelorette {
     background-position: 0 -32px;
@@ -2776,7 +2707,7 @@ ul.double-angle li:before {
     }
     #story .quote {
         font: 18px/32px 'Playfair Display', serif;
-        margin: 0px auto 0 auto;
+        margin: 0 auto 0 auto;
         padding: 40px 20px;
     }
     .timeline {
