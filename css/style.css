@@ -1201,11 +1201,12 @@ a.button i {
 #couple .images > div {
     position: relative;
     overflow: hidden;
+    background-position: center center;
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  background: no-repeat center center;
+    background-repeat: no-repeat;
   height: 380px;
     margin-bottom: 0;
 }
