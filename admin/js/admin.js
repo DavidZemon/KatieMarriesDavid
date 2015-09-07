@@ -9,7 +9,9 @@ angular.module('admin.services', [
 angular.module('admin.constants', []);
 
 
-function AdminCtrl($http, GuestList) {
+function OverviewCtrl($http, GuestList) {
+  this.loading = true;
+
   this.sortType = 'attendingFor';
   this.sortReverse = false;
 
@@ -25,11 +27,14 @@ function AdminCtrl($http, GuestList) {
   var vm = this;
   this.guests = GuestList.query(function (data) {
     vm.calculateStatistics(data);
+    vm.loading = false;
+  }, function () {
+    vm.loading = false;
   });
 
 }
 
-AdminCtrl.prototype.setSort = function (columnName) {
+OverviewCtrl.prototype.setSort = function (columnName) {
   if (this.sortType === columnName)
     this.sortReverse = !this.sortReverse;
   else {
@@ -38,15 +43,15 @@ AdminCtrl.prototype.setSort = function (columnName) {
   }
 };
 
-AdminCtrl.prototype.alert = function (guest) {
+OverviewCtrl.prototype.alert = function (guest) {
   console.log('You clicked guest #' + guest.guestListId);
 };
 
-AdminCtrl.prototype.clearFilter = function () {
+OverviewCtrl.prototype.clearFilter = function () {
   this.filter = {};
 };
 
-AdminCtrl.prototype.calculateStatistics = function (data) {
+OverviewCtrl.prototype.calculateStatistics = function (data) {
   var vm = this;
   data.forEach(function (guest) {
     if ('DAVID' === guest.attendingFor) {
@@ -64,7 +69,8 @@ AdminCtrl.prototype.calculateStatistics = function (data) {
       vm.rsvpsReceived += 1;
     else
       vm.rsvpsNotReceived += 1;
-  })
+  });
+  this.rsvpReceiveRatio = this.rsvpsReceived / (this.rsvpsReceived + this.rsvpsNotReceived );
 };
 
 function CapitalizeFilter() {
@@ -91,7 +97,7 @@ function GuestList($resource, SERVICE_URL) {
 }
 
 angular.module('admin')
-  .controller('AdminCtrl', AdminCtrl);
+  .controller('OverviewCtrl', OverviewCtrl);
 angular.module('admin')
   .filter('capitalize', CapitalizeFilter);
 angular.module('admin.services')
