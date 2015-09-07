@@ -48,7 +48,7 @@ function CapitalizeFilter() {
 }
 
 function GuestList($resource) {
-  return $resource('http://localhost:8080/KatieMarriesDavid/client/admin/server/guestList')
+  return $resource('http://katiemarriesdavid.com:8080/admin/server/guestList')
 }
 
 angular.module('admin')
