@@ -21,6 +21,8 @@
     <!-- AngularJS UI Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap.min.js"></script>
     <script src="admin.js"></script>
+
+    <link rel="stylesheet" href="override.css">
   </head>
   <body ng-controller="AdminCtrl as admin">
     <div class="container">
@@ -78,27 +80,112 @@
       <h1>Data</h1>
 
       <form>
-        <h2>Filter</h2>
+        <div class="row">
+          <h2>Filter</h2>
 
-        <div class="row">
-          <label class="col-md-3" for="filter">Attending For</label>
-          <input class="col-md-3" id="filter" ng-model="admin.filter.attendingFor" type="text">
+          <div class="form-group">
+            <!-- Attending for -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="attendingFor">Attending For</label>
+                <input class="form-control" id="attendingFor" ng-model="admin.filter.attendingFor" placeholder="katie"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- Relation -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="relation">Relation</label>
+                <input class="form-control" id="relation" ng-model="admin.filter.relation" placeholder="debbie"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- Last name -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="lastName">Last Name</label>
+                <input class="form-control" id="lastName" ng-model="admin.filter.lastName" placeholder="amos"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- Guest names -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="guestNames">Guest Names</label>
+                <input class="form-control" id="guestNames" ng-model="admin.filter.guestNames" placeholder="Jacobi"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- Going -->
+            <div class="col-md-6 col-sm-12">
+
+              <div class="input-group">
+                <label class="input-group-addon" for="going">Going</label>
+                <select class="form-control" id="going" ng-model="admin.filter.going">
+                  <option ng-selected="true" value="{{ null }}">Don't care</option>
+                  <option value="{{ true }}">Going</option>
+                  <option value="{{ false }}">Not going</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- RSVP Received -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="rsvped">RSVP Received</label>
+                <select class="form-control" id="rsvped" ng-model="admin.filter.rsvpReceived">
+                  <option ng-selected="true" value="{{ null }}">Don't care</option>
+                  <option value="{{ true }}">Received</option>
+                  <option value="{{ false }}">Not received</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Street -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="street">Street</label>
+                <input class="form-control" id="street" ng-model="admin.filter.street" placeholder="Cedar"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- City -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="city">City</label>
+                <input class="form-control" id="city" ng-model="admin.filter.city" placeholder="Cuyahoga"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- State -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="state">State</label>
+                <input class="form-control" id="state" ng-model="admin.filter.state" placeholder="oh"
+                       type="text">
+              </div>
+            </div>
+
+            <!-- Zip -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input-group">
+                <label class="input-group-addon" for="zip">Zip Code</label>
+                <input class="form-control" id="zip" ng-model="admin.filter.zip" placeholder="44223"
+                       type="text">
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Clear -->
         <div class="row">
-          <label class="col-md-3" for="relation">Relation</label>
-          <input class="col-md-3" id="relation" ng-model="admin.filter.relation" type="text">
-        </div>
-        <div class="row">
-          <label class="col-md-3" for="lastName">Last Name</label>
-          <input class="col-md-3" id="lastName" ng-model="admin.filter.lastName" type="text">
-        </div>
-        <div class="row">
-          <label class="col-md-3" for="going">going</label>
-          <select class="col-md-3" id="going" ng-model="admin.filter.going">
-            <option ng-selected="true" value="{{ null }}">Don't care</option>
-            <option value="{{ true }}">Going</option>
-            <option value="{{ false }}">Not going</option>
-          </select>
+          <button type="button" class="btn btn-default" ng-click="admin.clearFilter()">Clear</button>
         </div>
       </form>
     </div>
@@ -133,8 +220,8 @@
           <td>{{ guest.state | uppercase }}</td>
           <td>{{ guest.zip }}</td>
           <td>{{ guest.count }}</td>
-          <td><input type="checkbox" ng-model="guest.going"></td>
-          <td><input type="checkbox" ng-model="guest.rsvpReceived"></td>
+          <td><input type="checkbox" ng-model="guest.going" ng-disabled="true"></td>
+          <td><input type="checkbox" ng-model="guest.rsvpReceived" ng-disabled="true"></td>
           <td>{{ guest.attendingFor | capitalize:true }}</td>
           <td>{{ guest.relation | capitalize:true }}</td>
         </tr>

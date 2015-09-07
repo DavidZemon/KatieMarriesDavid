@@ -11,7 +11,7 @@ function AdminCtrl(GuestList) {
   this.sortType = 'attendingFor';
   this.sortReverse = false;
 
-  this.filter = {};
+  this.clearFilter();
 
   this.guests = GuestList.query();
 
@@ -34,6 +34,10 @@ AdminCtrl.prototype.setSort = function (columnName) {
 
 AdminCtrl.prototype.alert = function (guest) {
   console.log('You clicked guest #' + guest.guestListId);
+};
+
+AdminCtrl.prototype.clearFilter = function () {
+  this.filter = {};
 };
 
 function CapitalizeFilter() {
