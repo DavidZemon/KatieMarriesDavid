@@ -20,36 +20,116 @@
     <script src="admin.js"></script>
   </head>
   <body ng-controller="AdminCtrl as admin">
+    <div class="container">
+      <h1>Statistics</h1>
+
+      <div class="row">
+        <table class="table table-striped table-hover col-lg-3 col-md-6 col-sm-12">
+          <thead>
+            <tr>
+              <th>Statistic</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>David's Guests Invited</td>
+              <td>{{ admin.davidsGuestsInvited }}</td>
+            </tr>
+            <tr>
+              <td>Katie's Guests Invited</td>
+              <td>{{ admin.katiesGuestsInvited }}</td>
+            </tr>
+            <tr>
+              <td>Total Guests Invited</td>
+              <td>{{ admin.davidsGuestsInvited + admin.katiesGuestsInvited }}</td>
+            </tr>
+            <tr>
+              <td>David's Guests Attending</td>
+              <td>{{ admin.davidsGuestsAttending }}</td>
+            </tr>
+            <tr>
+              <td>Katie's Guests Attending</td>
+              <td>{{ admin.katiesGuestsAttending }}</td>
+            </tr>
+            <tr>
+              <td>Total Guests Attending</td>
+              <td>{{ admin.davidsGuestsAttending + admin.katiesGuestsAttending }}</td>
+            </tr>
+            <tr>
+              <td>RSVPs Received</td>
+              <td>{{ admin.rsvpsReceived }}</td>
+            </tr>
+            <tr>
+              <td>RSVPs Not Received</td>
+              <td>{{ admin.rsvpsNotReceived }}</td>
+            </tr>
+            <tr>
+              <td>RSVPs Received (%)</td>
+              <td>{{ admin.rsvpsReceived * 100 / (admin.rsvpsReceived + admin.rsvpsNotReceived ) | number : 0 }}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <h1>Data</h1>
+
+    <div class="container">
+      <form>
+        <h2>Filter</h2>
+
+        <div class="row">
+          <label class="col-md-3" for="filter">Attending For</label>
+          <input class="col-md-3" id="filter" ng-model="admin.filter.attendingFor" type="text">
+        </div>
+        <div class="row">
+          <label class="col-md-3" for="relation">Relation</label>
+          <input class="col-md-3" id="relation" ng-model="admin.filter.relation" type="text">
+        </div>
+        <div class="row">
+          <label class="col-md-3" for="lastName">Last Name</label>
+          <input class="col-md-3" id="lastName" ng-model="admin.filter.lastName" type="text">
+        </div>
+        <div class="row">
+          <label class="col-md-3" for="going">going</label>
+          <select class="col-md-3" id="going" ng-model="admin.filter.going">
+            <option ng-selected="true" value="{{ null }}">Don't care</option>
+            <option value="{{ true }}">Going</option>
+            <option value="{{ false }}">Not going</option>
+          </select>
+        </div>
+      </form>
+    </div>
+
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Salutation</th>
-          <th>Last Name</th>
-          <th>Inside Envelope</th>
-          <th>Guest Names</th>
-          <th>Street</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zip Code</th>
-          <th>Count</th>
+          <th ng-click="admin.setSort('salutation')">Salutation</th>
+          <th ng-click="admin.setSort('lastName')">Last Name</th>
+          <th ng-click="admin.setSort('insideEnvelope')">Inside Envelope</th>
+          <th ng-click="admin.setSort('guestNames')">Guest Names</th>
+          <th ng-click="admin.setSort('street')">Street</th>
+          <th ng-click="admin.setSort('city')">City</th>
+          <th ng-click="admin.setSort('state')">State</th>
+          <th ng-click="admin.setSort('zip')">Zip Code</th>
+          <th ng-click="admin.setSort('count')">Count</th>
           <th>Going?</th>
           <th>RSVP Received</th>
-          <th>Attending For</th>
-          <th>Relation</th>
+          <th ng-click="admin.setSort('attendingFor')">Attending For</th>
+          <th ng-click="admin.setSort('relation')">Relation</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="guest in admin.guests" ng-click="admin.alert(guest)">
-          <td>{{ guest.guestListId }}</td>
+        <tr ng-repeat="guest in admin.guests | orderBy:admin.sortType:admin.sortReverse | filter:admin.filter"
+            ng-click="admin.alert(guest)">
           <td>{{ guest.salutation | capitalize:true }}</td>
           <td>{{ guest.lastName | capitalize:true }}</td>
           <td>{{ guest.insideEnvelope | capitalize:true }}</td>
           <td>{{ guest.guestNames | capitalize:true }}</td>
           <td>{{ guest.street | capitalize:true }}</td>
           <td>{{ guest.city | capitalize:true }}</td>
-          <td>{{ guest.state | capitalize:true }}</td>
+          <td>{{ guest.state | uppercase }}</td>
           <td>{{ guest.zip }}</td>
           <td>{{ guest.count }}</td>
           <td><input type="checkbox" ng-model="guest.going"></td>

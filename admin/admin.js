@@ -8,10 +8,29 @@ angular.module('admin.services', [
 
 
 function AdminCtrl(GuestList) {
+  this.sortType = 'attendingFor';
+  this.sortReverse = false;
+
+  this.filter = {};
+
   this.guests = GuestList.query();
 
-  this.davidsGuests = 50;
+  this.davidsGuestsInvited = 50;
+  this.katiesGuestsInvited = 50;
+  this.davidsGuestsAttending = 50;
+  this.katiesGuestsAttending = 50;
+  this.rsvpsReceived = 1;
+  this.rsvpsNotReceived = 99;
 }
+
+AdminCtrl.prototype.setSort = function (columnName) {
+  if (this.sortType === columnName)
+    this.sortReverse = !this.sortReverse;
+  else {
+    this.sortReverse = false;
+    this.sortType = columnName;
+  }
+};
 
 AdminCtrl.prototype.alert = function (guest) {
   console.log('You clicked guest #' + guest.guestListId);
