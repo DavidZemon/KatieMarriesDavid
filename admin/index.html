@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="admin">
+  <head>
+    <meta charset="utf-8">
+    <title>KatieMarriesDavid.com Admin Area</title>
+
+    <!--*****************--
+      --**** NOTE *******--
+      --*****************--
+      Use the following link to learn about the bootstrap theme: http://getbootstrap.com/examples/theme/ -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="admin.js"></script>
+  </head>
+  <body ng-controller="AdminCtrl as admin">
+    <h1>Hello!</h1>
+
+    <p>This is a paragraph</p>
+
+    <p>My message: {{ admin.message }}</p>
+    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-default">Cancel</button>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </body>
+</html>
