@@ -34,6 +34,8 @@ DetailsCtrl.prototype.loadGuest = function () {
 };
 
 DetailsCtrl.prototype.save = function () {
+  this.guest.lastUpdatedBy = prompt('Enter your first name');
+
   this.loading = true;
   var vm = this;
   this.guest.$save(function () {
