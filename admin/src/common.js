@@ -18,8 +18,8 @@ function CapitalizeFilter() {
  *** Constants ***
  *****************/
 angular.module('admin.constants', [])
-//.constant('SERVICE_URL', 'http://localhost:8080/admin/server')
-  .constant('SERVICE_URL', 'http://katiemarriesdavid.com:8080/admin/server')
+  .constant('SERVICE_URL', 'http://localhost:8080/admin/server')
+  //.constant('SERVICE_URL', 'http://katiemarriesdavid.com:8080/admin/server')
 ;
 
 /****************
@@ -31,14 +31,27 @@ angular.module('admin.services', [
 ])
   .factory('GuestList', GuestList);
 function GuestList($resource, SERVICE_URL) {
-  return $resource(SERVICE_URL + '/guestList', {}, {
+  return $resource(SERVICE_URL + '/guestList/:id', {
+    id: '@id'
+  }, {
     'query': {
       method: 'GET',
       isArray: true,
       headers: {
         'Authorization': CryptoJS.MD5(new Date(1958, 7, 10).toJSON())
       }
+    },
+    'get': {
+      method: 'GET',
+      headers: {
+        'Authorization': CryptoJS.MD5(new Date(1958, 7, 10).toJSON())
+      }
+    },
+    'save': {
+      method: 'POST',
+      headers: {
+        'Authorization': CryptoJS.MD5(new Date(1958, 7, 10).toJSON())
+      }
     }
   })
 }
-

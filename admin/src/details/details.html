@@ -1,1 +1,6 @@
-<p>{{ details.guestListId }}</p>
+<div ng-show="details.loading">
+  <h1>Patience please! It's loading...</h1>
+</div>
+<div ng-hide="details.loading">
+  <p>{{ details.guest | json }}</p>
+</div>

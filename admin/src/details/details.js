@@ -12,8 +12,18 @@ angular.module('admin.details', [
     }])
   .controller('DetailsCtrl', DetailsCtrl);
 
-function DetailsCtrl($routeParams) {
+function DetailsCtrl($routeParams, GuestList) {
   this.loading = true;
 
   this.guestListId = $routeParams.guestListId;
+
+  var vm = this;
+  this.guest = GuestList.get({
+    id: this.guestListId
+  }, function () {
+    vm.loading = false;
+  }, function () {
+    "use strict";
+    vm.loading = false;
+  });
 }

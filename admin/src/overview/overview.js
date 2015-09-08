@@ -35,7 +35,6 @@ function OverviewCtrl($location, GuestList) {
   }, function () {
     vm.loading = false;
   });
-
 }
 
 OverviewCtrl.prototype.setSort = function (columnName) {
