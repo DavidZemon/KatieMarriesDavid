@@ -187,9 +187,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        ng-repeat="guest in overview.guests | orderBy:overview.sortType:overview.sortReverse | filter:overview.filter"
-        ng-click="overview.alert(guest)">
+      <tr ng-repeat="guest in overview.guests | orderBy:overview.sortType:overview.sortReverse | filter:overview.filter"
+          ng-click="overview.go(guest)">
         <td>{{ guest.salutation | capitalize:true }}</td>
         <td>{{ guest.lastName | capitalize:true }}</td>
         <td>{{ guest.insideEnvelope | capitalize:true }}</td>

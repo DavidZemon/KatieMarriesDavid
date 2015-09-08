@@ -12,8 +12,9 @@ angular.module('admin.overview', [
     }])
   .controller('OverviewCtrl', OverviewCtrl);
 
-function OverviewCtrl(GuestList) {
+function OverviewCtrl($location, GuestList) {
   this.loading = true;
+  this.$location = $location;
 
   this.sortType = 'attendingFor';
   this.sortReverse = false;
@@ -46,8 +47,8 @@ OverviewCtrl.prototype.setSort = function (columnName) {
   }
 };
 
-OverviewCtrl.prototype.alert = function (guest) {
-  console.log('You clicked guest #' + guest.guestListId);
+OverviewCtrl.prototype.go = function (guest) {
+  this.$location.path('/details/' + guest.guestListId);
 };
 
 OverviewCtrl.prototype.clearFilter = function () {

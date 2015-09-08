@@ -4,7 +4,7 @@ angular.module('admin.details', [
   .config(['$routeProvider',
     function ($routeProvider) {
       $routeProvider
-        .when('/details', {
+        .when('/details/:guestListId', {
           templateUrl: 'src/details/details.html',
           controller: 'DetailsCtrl',
           controllerAs: 'details'
@@ -12,6 +12,8 @@ angular.module('admin.details', [
     }])
   .controller('DetailsCtrl', DetailsCtrl);
 
-function DetailsCtrl() {
-  this.message = "Hello, world!";
+function DetailsCtrl($routeParams) {
+  this.loading = true;
+
+  this.guestListId = $routeParams.guestListId;
 }
