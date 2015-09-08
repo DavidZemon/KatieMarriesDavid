@@ -1,6 +1,15 @@
 angular.module('admin.overview', [
   'ngRoute'
 ])
+  .config(['$routeProvider',
+    function ($routeProvider) {
+      $routeProvider
+        .when('/overview', {
+          templateUrl: 'src/overview/overview.html',
+          controller: 'OverviewCtrl',
+          controllerAs: 'overview'
+        })
+    }])
   .controller('OverviewCtrl', OverviewCtrl);
 
 function OverviewCtrl(GuestList) {

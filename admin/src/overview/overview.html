@@ -1,0 +1,209 @@
+<div ng-show="overview.loading">
+  <h1>Patience please! It's loading...</h1>
+</div>
+<div ng-hide="overview.loading">
+  <div class="container">
+    <h1>Statistics</h1>
+
+    <div class="row">
+      <table class="table table-striped table-hover col-lg-3 col-md-6 col-sm-12">
+        <thead>
+          <tr>
+            <th>Statistic</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>David's Guests Invited</td>
+            <td>{{ overview.davidsGuestsInvited }}</td>
+          </tr>
+          <tr>
+            <td>Katie's Guests Invited</td>
+            <td>{{ overview.katiesGuestsInvited }}</td>
+          </tr>
+          <tr>
+            <td>Total Guests Invited</td>
+            <td>{{ overview.davidsGuestsInvited + overview.katiesGuestsInvited }}</td>
+          </tr>
+          <tr>
+            <td>David's Guests Attending</td>
+            <td>{{ overview.davidsGuestsAttending }}</td>
+          </tr>
+          <tr>
+            <td>Katie's Guests Attending</td>
+            <td>{{ overview.katiesGuestsAttending }}</td>
+          </tr>
+          <tr>
+            <td>Total Guests Attending</td>
+            <td>{{ overview.davidsGuestsAttending + overview.katiesGuestsAttending }}</td>
+          </tr>
+          <tr>
+            <td>RSVPs Received</td>
+            <td>{{ overview.rsvpsReceived }}</td>
+          </tr>
+          <tr>
+            <td>RSVPs Not Received</td>
+            <td>{{ overview.rsvpsNotReceived }}</td>
+          </tr>
+          <tr>
+            <td>RSVPs Received (%)</td>
+            <td>{{ overview.rsvpReceiveRatio * 100 | number : 0 }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h1>Data</h1>
+
+    <form>
+      <div class="row">
+        <h2>Filter</h2>
+
+        <div class="form-group">
+          <!-- Attending for -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="attendingFor">Attending For</label>
+              <input class="form-control" id="attendingFor" ng-model="overview.filter.attendingFor"
+                     placeholder="katie"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- Relation -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="relation">Relation</label>
+              <input class="form-control" id="relation" ng-model="overview.filter.relation" placeholder="debbie"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- Last name -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="lastName">Last Name</label>
+              <input class="form-control" id="lastName" ng-model="overview.filter.lastName" placeholder="amos"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- Guest names -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="guestNames">Guest Names</label>
+              <input class="form-control" id="guestNames" ng-model="overview.filter.guestNames" placeholder="Jacobi"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- Going -->
+          <div class="col-md-6 col-sm-12">
+
+            <div class="input-group">
+              <label class="input-group-addon" for="going">Going</label>
+              <select class="form-control" id="going" ng-model="overview.filter.going">
+                <option ng-selected="true" value="{{ null }}">Don't care</option>
+                <option value="{{ true }}">Going</option>
+                <option value="{{ false }}">Not going</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- RSVP Received -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="rsvped">RSVP Received</label>
+              <select class="form-control" id="rsvped" ng-model="overview.filter.rsvpReceived">
+                <option ng-selected="true" value="{{ null }}">Don't care</option>
+                <option value="{{ true }}">Received</option>
+                <option value="{{ false }}">Not received</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Street -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="street">Street</label>
+              <input class="form-control" id="street" ng-model="overview.filter.street" placeholder="Cedar"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- City -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="city">City</label>
+              <input class="form-control" id="city" ng-model="overview.filter.city" placeholder="Cuyahoga"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- State -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="state">State</label>
+              <input class="form-control" id="state" ng-model="overview.filter.state" placeholder="oh"
+                     type="text">
+            </div>
+          </div>
+
+          <!-- Zip -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input-group">
+              <label class="input-group-addon" for="zip">Zip Code</label>
+              <input class="form-control" id="zip" ng-model="overview.filter.zip" placeholder="44223"
+                     type="text">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clear -->
+      <div class="row">
+        <button type="button" class="btn btn-default" ng-click="overview.clearFilter()">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th ng-click="overview.setSort('salutation')">Salutation</th>
+        <th ng-click="overview.setSort('lastName')">Last Name</th>
+        <th ng-click="overview.setSort('insideEnvelope')">Inside Envelope</th>
+        <th ng-click="overview.setSort('guestNames')">Guest Names</th>
+        <th ng-click="overview.setSort('street')">Street</th>
+        <th ng-click="overview.setSort('city')">City</th>
+        <th ng-click="overview.setSort('state')">State</th>
+        <th ng-click="overview.setSort('zip')">Zip Code</th>
+        <th ng-click="overview.setSort('count')">Count</th>
+        <th>Going?</th>
+        <th>RSVP Received</th>
+        <th ng-click="overview.setSort('attendingFor')">Attending For</th>
+        <th ng-click="overview.setSort('relation')">Relation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        ng-repeat="guest in overview.guests | orderBy:overview.sortType:overview.sortReverse | filter:overview.filter"
+        ng-click="overview.alert(guest)">
+        <td>{{ guest.salutation | capitalize:true }}</td>
+        <td>{{ guest.lastName | capitalize:true }}</td>
+        <td>{{ guest.insideEnvelope | capitalize:true }}</td>
+        <td>{{ guest.guestNames | capitalize:true }}</td>
+        <td>{{ guest.street | capitalize:true }}</td>
+        <td>{{ guest.city | capitalize:true }}</td>
+        <td>{{ guest.state | uppercase }}</td>
+        <td>{{ guest.zip }}</td>
+        <td>{{ guest.count }}</td>
+        <td><input type="checkbox" ng-model="guest.going" ng-disabled="true"></td>
+        <td><input type="checkbox" ng-model="guest.rsvpReceived" ng-disabled="true"></td>
+        <td>{{ guest.attendingFor | capitalize:true }}</td>
+        <td>{{ guest.relation | capitalize:true }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
