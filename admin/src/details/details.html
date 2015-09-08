@@ -145,7 +145,7 @@
       <div class="row">
         <div class="input-group">
           <label class="input-group-addon" for="createdDate">Created By</label>
-          <input class="form-control" id="createdDate" ng-model="details.guest.createdDate | date " type="text"
+          <input class="form-control" id="createdDate" ng-model="details.guest.createdDate * 1000 | date " type="text"
                  ng-disabled="true">
         </div>
       </div>
@@ -167,7 +167,8 @@
       <div class="row">
         <div class="input-group">
           <label class="input-group-addon" for="lastUpdatedDate">Last Updated Date</label>
-          <input class="form-control" id="lastUpdatedDate" ng-model="details.guest.lastUpdatedDate | date" type="text"
+          <input class="form-control" id="lastUpdatedDate" ng-model="details.guest.lastUpdatedDate * 1000 | date"
+                 type="text"
                  ng-disabled="true">
         </div>
       </div>
