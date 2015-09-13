@@ -11,6 +11,7 @@ function AppCtrl(Rsvp) {
   this.failure = false;
   this.success = false;
   this.errorMessage = false;
+  this.loading = false;
 
   this.rsvp = new Rsvp({});
   this.rsvp.persons = 1;
@@ -19,14 +20,16 @@ function AppCtrl(Rsvp) {
 AppCtrl.prototype.submit = function (going) {
   if (this.rsvpForm.$valid) {
     this.rsvp.going = going;
+    this.loading = true;
 
     var vm = this;
     this.rsvp.$save(function () {
+      vm.loading = false;
       vm.success = true;
       vm.failure = false;
       vm.errorMessage = false;
     }, function (error) {
-      console.log(error);
+      vm.loading = false;
       if (error && error.data && error.data.message) {
         vm.errorMessage = error.data.message;
         vm.failure = false;

@@ -518,22 +518,24 @@
                   <b>Info</b> {{ app.errorMessage }}
                 </div>
 
-                <div class="column six">
+                <div class="column six" ng-class="{error: app.rsvpForm.name.$invalid && app.rsvpForm.name.$dirty}">
                   <label for="name">Name(s) of Guest(s)</label>
                   <input type="text" id="name" name="name" placeholder="Amy, Rory, River" ng-model="app.rsvp.names"
                          ng-minlength="2" ng-required="true">
                 </div>
-                <div class="column six">
+                <div class="column six"
+                     ng-class="{error: app.rsvpForm.address.$invalid && app.rsvpForm.address.$dirty}">
                   <label for="address">Street Address</label>
                   <input type="text" id="address" name="address" placeholder="1600 Pennsylvania"
-                         ng-model="app.rsvp.street" ng-minlength="3" ng-required="true">
+                         ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+$'" ng-required="true">
                 </div>
-                <div class="column six">
+                <div class="column six" ng-class="{error: app.rsvpForm.email.$invalid && app.rsvpForm.email.$dirty}">
                   <label for="email">Email</label>
                   <input type="text" id="email" name="email" placeholder="amy@gallifrey.net" ng-model="app.rsvp.email"
                          ng-required="false" ng-pattern="'^.+@.+\\..+$'">
                 </div>
-                <div class="column six">
+                <div class="column six"
+                     ng-class="{error: app.rsvpForm.persons.$invalid && app.rsvpForm.$submitted}">
                   <label for="persons">Number of guests</label>
                   <select name="persons" id="persons" ng-model="app.rsvp.count" ng-required="true">
                     <option value="1">One</option>
@@ -546,12 +548,21 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <div>
+                <div ng-hide="app.loading">
                   <div class="column six">
                     <input type="submit" value="Decline with regret" ng-click="app.submit(false)">
                   </div>
                   <div class="column six">
                     <input type="submit" value="Accept with pleasure" ng-click="app.submit(true)">
+                  </div>
+                </div>
+
+                <div class="column twelve" ng-show="app.loading">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                      <span class="sr-only">Sending RSVP...</span>
+                    </div>
                   </div>
                 </div>
 
