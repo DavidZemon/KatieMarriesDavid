@@ -8,17 +8,21 @@ angular.module('app', [
   });
 
 function AppCtrl(Rsvp) {
-  this.failure = false;
-  this.success = false;
-  this.errorMessage = false;
-  this.loading = false;
-
+  this.reset();
   this.rsvp = new Rsvp({});
   this.rsvp.persons = 1;
 }
 
+AppCtrl.prototype.reset = function () {
+  this.failure = false;
+  this.success = false;
+  this.errorMessage = false;
+  this.loading = false;
+};
+
 AppCtrl.prototype.submit = function (going) {
   if (this.rsvpForm.$valid) {
+    this.reset();
     this.rsvp.going = going;
     this.loading = true;
 
@@ -28,6 +32,8 @@ AppCtrl.prototype.submit = function (going) {
       vm.success = true;
       vm.failure = false;
       vm.errorMessage = false;
+
+      vm.submittedCount = vm.rsvp.count;
     }, function (error) {
       vm.loading = false;
       if (error && error.data && error.data.message) {

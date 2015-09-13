@@ -504,9 +504,14 @@
             <div class="row" ng-controller="App as app">
               <form name="app.rsvpForm">
                 <!-- Alerts -->
-                <div class="alert alert-success" role="alert" ng-show="app.success">
+                <div class="alert alert-success" role="alert" ng-show="app.success && app.rsvp.going">
                   <button type="button" class="close" ng-click="app.success = false">&times;</button>
-                  <b>Success!</b> Your RSVP has been received!
+                  <b>Success!</b> Your RSVP for {{ app.submittedCount }}
+                  guest{{ app.submittedCount > 1 ? 's' : '' }} has been received!
+                </div>
+                <div class="alert alert-success" role="alert" ng-show="app.success && !app.rsvp.going">
+                  <button type="button" class="close" ng-click="app.success = false">&times;</button>
+                  <b>Success!</b> Sorry to hear you won't be joining us. Thank you for your RSVP.
                 </div>
                 <div class="alert alert-warning" role="alert" ng-show="app.failure">
                   <button type="button" class="close" ng-click="app.failure = false">&times;</button>
@@ -521,23 +526,25 @@
                 <div class="column six" ng-class="{error: app.rsvpForm.name.$invalid && app.rsvpForm.name.$dirty}">
                   <label for="name">Name(s) of Guest(s)</label>
                   <input type="text" id="name" name="name" placeholder="Amy, Rory, River" ng-model="app.rsvp.names"
-                         ng-minlength="2" ng-required="true">
+                         ng-minlength="2" ng-required="true" ng-disabled="app.loading">
                 </div>
                 <div class="column six"
                      ng-class="{error: app.rsvpForm.address.$invalid && app.rsvpForm.address.$dirty}">
                   <label for="address">Street Address</label>
                   <input type="text" id="address" name="address" placeholder="1600 Pennsylvania"
-                         ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+.*$'" ng-required="true">
+                         ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+.*$'" ng-required="true"
+                         ng-disabled="app.loading">
                 </div>
                 <div class="column six" ng-class="{error: app.rsvpForm.email.$invalid && app.rsvpForm.email.$dirty}">
                   <label for="email">Email</label>
                   <input type="text" id="email" name="email" placeholder="amy@gallifrey.net" ng-model="app.rsvp.email"
-                         ng-required="false" ng-pattern="'^.+@.+\\..+$'">
+                         ng-required="false" ng-pattern="'^.+@.+\\..+$'" ng-disabled="app.loading">
                 </div>
                 <div class="column six"
                      ng-class="{error: app.rsvpForm.persons.$invalid && app.rsvpForm.$submitted}">
                   <label for="persons">Number of guests</label>
-                  <select name="persons" id="persons" ng-model="app.rsvp.count" ng-required="true">
+                  <select name="persons" id="persons" ng-model="app.rsvp.count" ng-required="true"
+                          ng-disabled="app.loading">
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
