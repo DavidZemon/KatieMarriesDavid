@@ -98,15 +98,6 @@
             </div>
           </div>
 
-          <!-- Guest names -->
-          <div class="col-md-6 col-sm-12">
-            <div class="input-group">
-              <label class="input-group-addon" for="guestNamesInRsvp">Guest Names in RSVP</label>
-              <input class="form-control" id="guestNamesInRsvp" ng-model="overview.filter.guestNamesInRsvp"
-                     placeholder="Jacoby" type="text">
-            </div>
-          </div>
-
           <!-- Going -->
           <div class="col-md-6 col-sm-12">
 
@@ -184,6 +175,7 @@
         <th ng-click="overview.setSort('lastName')">Last Name</th>
         <th ng-click="overview.setSort('insideEnvelope')">Inside Envelope</th>
         <th ng-click="overview.setSort('guestNames')">Guest Names</th>
+        <th ng-click="overview.setSort('guestNamesInRsvp')">Names in RSVP</th>
         <th ng-click="overview.setSort('street')">Street</th>
         <th ng-click="overview.setSort('city')">City</th>
         <th ng-click="overview.setSort('state')">State</th>
@@ -202,6 +194,7 @@
         <td>{{ guest.lastName | capitalize:true }}</td>
         <td>{{ guest.insideEnvelope | capitalize:true }}</td>
         <td>{{ guest.guestNames | capitalize:true }}</td>
+        <td>{{ guest.guestNamesInRsvp | capitalize:true }}</td>
         <td>{{ guest.street | capitalize:true }}</td>
         <td>{{ guest.city | capitalize:true }}</td>
         <td>{{ guest.state | uppercase }}</td>
