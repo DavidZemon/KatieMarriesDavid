@@ -62,8 +62,6 @@ if (!Array.prototype.indexOf) {
 
 (function ($) {
 
-  "use strict";
-
   $(document).ready(function () {
 
     /* Preloader - remove this and loaderOverlay div in html file, to disable loader.
@@ -383,8 +381,6 @@ if (!Array.prototype.indexOf) {
      ==================================================================================== */
 
     if (typeof(google) !== 'undefined') {
-      google.maps.event.addDomListener(window, 'load', init);
-
       function init() {
         if (typeof markers == 'undefined' || $.type(markers) != 'array') {
           return;
@@ -573,6 +569,8 @@ if (!Array.prototype.indexOf) {
         }
         map.fitBounds(bound);
       }
+
+      google.maps.event.addDomListener(window, 'load', init);
     }
 
     /* Theme Tabs
