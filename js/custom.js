@@ -143,6 +143,10 @@ if (!Array.prototype.indexOf) {
       event.preventDefault();
     });
 
+    $('#navigation').find('a').on('click', function () {
+      $("body").toggleClass('open');
+    });
+
     $(window).resize(function () {
       recalculate_height();
     });
