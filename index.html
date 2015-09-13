@@ -527,7 +527,7 @@
                      ng-class="{error: app.rsvpForm.address.$invalid && app.rsvpForm.address.$dirty}">
                   <label for="address">Street Address</label>
                   <input type="text" id="address" name="address" placeholder="1600 Pennsylvania"
-                         ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+$'" ng-required="true">
+                         ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+.*$'" ng-required="true">
                 </div>
                 <div class="column six" ng-class="{error: app.rsvpForm.email.$invalid && app.rsvpForm.email.$dirty}">
                   <label for="email">Email</label>
