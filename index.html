@@ -502,12 +502,16 @@
               <form action="action.php" method="POST" autocomplete="off" class="actionform">
                 <div class="notification"></div>
                 <div class="column six">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name">
+                  <label for="name">Name(s) of Guest(s)</label>
+                  <input type="text" id="name" name="name" placeholder="Amy, Rory, River">
+                </div>
+                <div class="column six">
+                  <label for="address">Address on Invite (Number and Street)</label>
+                  <input type="text" id="address" name="address" placeholder="221 B Baker St">
                 </div>
                 <div class="column six">
                   <label for="email">Email</label>
-                  <input type="text" id="email" name="email">
+                  <input type="text" id="email" name="email" placeholder="amy@gallifrey.net">
                 </div>
                 <div class="column six">
                   <label for="persons">Number of guests</label>
@@ -525,15 +529,7 @@
                   <input type="text" id="autovalue" name="autovalue">
                   <i class="fa fa-refresh auto-refresh" title="Reload security question"></i>
                 </div>
-                <div class="column six">
-                  <label for="food">Food Preference</label>
-                  <select name="food" id="food">
-                    <!-- TODO: Add fancy thing on "entree" -->
-                    <option selected="selected">Select your entree</option>
-                    <option value="vege">Vegetarian</option>
-                    <option value="meat">Non-vegetarian</option>
-                  </select>
-                </div>
+
                 <div class="clearfix"></div>
                 <div>
                   <div class="column six">
