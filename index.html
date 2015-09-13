@@ -22,8 +22,6 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/grid.css" media="all">
     <link rel="stylesheet" href="css/magnific-popup.css" media="all">
     <link rel="stylesheet" href="css/font-awesome.min.css" media="all">
@@ -57,7 +55,7 @@
 
   </head>
 
-  <body>
+  <body ng-controller="App as app">
 
     <div class="loaderOverlay"><i class="fa fa-heart animate-spin"></i></div>
     <!-- Hero Section -->
@@ -287,40 +285,41 @@
               <h2 class="vibe">Bridesmaids</h2>
 
               <!-- Images -->
-              <div class="tabs people-image">
+              <div class="people-image">
                 <li>
-                  <a href="#keeley" class="active"><img src="images/important-people/keeley1.jpg" alt="keeley"/></a>
+                  <img ng-class="{active: app.keeley}" ng-click="app.bridesmaid('keeley')"
+                       src="images/important-people/keeley1.jpg" alt="keeley"/>
                 </li>
                 <li>
-                  <a href="#mandy"><img src="images/important-people/mandy1.jpg" alt="mandy"/></a>
+                  <img ng-class="{active: app.mandy}" ng-click="app.bridesmaid('mandy')"
+                       src="images/important-people/mandy1.jpg" alt="mandy"/>
                 </li>
                 <li>
-                  <a href="#emily"><img src="images/important-people/emily2.png" alt="emily"/></a>
+                  <img ng-class="{active: app.emily}" ng-click="app.bridesmaid('emily')"
+                       src="images/important-people/emily2.png" alt="emily"/>
                 </li>
               </div>
 
               <!--  Text -->
-              <div class="tab-content-wrap">
-                <div id="keeley" class="tab-content">
-                  <h2>Keeley Kuhlmann</h2>
+              <div id="keeley" ng-show="app.keeley">
+                <h2>Keeley Kuhlmann</h2>
 
-                  <div class="story">
-                    <p>Maid of Honor. Longtime friend of Katie's since middle school.</p>
-                  </div>
+                <div class="story">
+                  <p>Maid of Honor. Longtime friend of Katie's since middle school.</p>
                 </div>
-                <div id="mandy" class="tab-content">
-                  <h2>Mandy Liu</h2>
+              </div>
+              <div id="mandy" ng-show="app.mandy">
+                <h2>Mandy Liu</h2>
 
-                  <div class="story">
-                    <p>Great friend. Met first year of college.</p>
-                  </div>
+                <div class="story">
+                  <p>Great friend. Met first year of college.</p>
                 </div>
-                <div id="emily" class="tab-content">
-                  <h2>Emily Page</h2>
+              </div>
+              <div id="emily" ng-show="app.emily">
+                <h2>Emily Page</h2>
 
-                  <div class="story">
-                    <p>Great friend. Met first year of college.</p>
-                  </div>
+                <div class="story">
+                  <p>Great friend. Met first year of college.</p>
                 </div>
               </div>
             </div>
@@ -328,42 +327,45 @@
             <div class="column six left">
               <h2 class="vibe">Groomsman</h2>
 
-              <div class="tabs people-image">
+              <!-- Images -->
+              <div class="people-image">
                 <li>
-                  <a href="#unicorn" class="active"><img src="images/important-people/seto.jpg" alt=""/></a>
+                  <img ng-class="{active: app.chris}" ng-click="app.groomsmen('chris')"
+                       src="images/important-people/seto.jpg" alt="chris"/>
                 </li>
                 <li>
-                  <a href="#kevin"><img src="images/important-people/kevin1.png" alt="kevin"/></a>
+                  <img ng-class="{active: app.kevin}" ng-click="app.groomsmen('kevin')"
+                       src="images/important-people/kevin1.png" alt="kevin"/>
                 </li>
                 <li>
-                  <a href="#matt"><img src="images/important-people/matt1.png" alt="matt"/></a>
+                  <img ng-class="{active: app.matt}" ng-click="app.groomsmen('matt')"
+                       src="images/important-people/matt1.png" alt="matt"/>
                 </li>
               </div>
-              <div class="tab-content-wrap">
-                <div id="unicorn" class="tab-content">
-                  <h2>Chris Seto</h2>
 
-                  <div class="story">
-                    <p>Best man and friend of the groom</p>
-                  </div>
+              <!-- Text -->
+              <div id="chris" ng-show="app.chris">
+                <h2>Chris Seto</h2>
+
+                <div class="story">
+                  <p>Best man and friend of the groom</p>
                 </div>
-                <div id="kevin" class="tab-content">
-                  <h2>Kevin Zemon</h2>
+              </div>
+              <div id="kevin" ng-show="app.kevin">
+                <h2>Kevin Zemon</h2>
 
-                  <div class="story">
-                    <p>Brother of the groom</p>
-                  </div>
+                <div class="story">
+                  <p>Brother of the groom</p>
                 </div>
-                <div id="matt" class="tab-content">
-                  <h2>Matt Isbell</h2>
+              </div>
+              <div id="matt" ng-show="app.matt">
+                <h2>Matt Isbell</h2>
 
-                  <div class="story">
-                    <p>Brother of the bride</p>
-                  </div>
+                <div class="story">
+                  <p>Brother of the bride</p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -521,7 +523,7 @@
 
         <div class="form">
           <div class="container smaller">
-            <div class="row" ng-controller="App as app">
+            <div class="row">
               <form name="app.rsvpForm">
                 <!-- Alerts -->
                 <div class="alert alert-success" role="alert" ng-show="app.success && app.rsvp.going">

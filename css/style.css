@@ -1520,17 +1520,14 @@ a.button i {
     font-size: 56px;
     content: "\e005";
 }
-#important-people .tab-content h2 {
+
+#important-people h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 300;
     margin: 15px 0;
     color: #D9C6B1;
 }
-.people-image img {
-    opacity: 0.3;
-    max-width: 111px;
-    border-radius: 50%;
-}
+
 .people-image li {
     margin: 0 7px;
     list-style: none;
@@ -1542,7 +1539,14 @@ a.button i {
 .people-image li:last-child {
     margin-right: 0;
 }
-.people-image li.active a img {
+
+.people-image img {
+  opacity: 0.3;
+  max-width: 111px;
+  border-radius: 50%;
+}
+
+.people-image img.active {
     opacity: 1;
 }
 /* ===========================================================

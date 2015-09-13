@@ -8,12 +8,19 @@ angular.module('app', [
   });
 
 function AppCtrl(Rsvp) {
-  this.reset();
+  this.resetRsvp();
   this.rsvp = new Rsvp({});
   this.rsvp.persons = 1;
+
+  this.keeley = true;
+  this.mandy = false;
+  this.emily = false;
+  this.chris = true;
+  this.kevin = false;
+  this.matt = false;
 }
 
-AppCtrl.prototype.reset = function () {
+AppCtrl.prototype.resetRsvp = function () {
   this.failure = false;
   this.success = false;
   this.errorMessage = false;
@@ -22,7 +29,7 @@ AppCtrl.prototype.reset = function () {
 
 AppCtrl.prototype.submit = function (going) {
   if (this.rsvpForm.$valid) {
-    this.reset();
+    this.resetRsvp();
     this.rsvp.going = going;
     this.loading = true;
 
@@ -45,6 +52,41 @@ AppCtrl.prototype.submit = function (going) {
       }
       vm.success = false;
     });
+  }
+};
+
+AppCtrl.prototype.bridesmaid = function (maid) {
+  this.keeley = false;
+  this.mandy = false;
+  this.emily = false;
+  switch (maid) {
+    case 'keeley':
+      this.keeley = true;
+      break;
+    case 'mandy':
+      this.mandy = true;
+      break;
+    case 'emily':
+      this.emily = true;
+      break;
+  }
+};
+
+AppCtrl.prototype.groomsmen = function (dude) {
+  this.chris = false;
+  this.kevin = false;
+  this.matt = false;
+
+  switch (dude) {
+    case 'chris':
+      this.chris = true;
+      break;
+    case 'kevin':
+      this.kevin = true;
+      break;
+    case 'matt':
+      this.matt = true;
+      break;
   }
 };
 
@@ -188,10 +230,6 @@ if (!Array.prototype.indexOf) {
      ==================================================================================== */
     if (!device.tablet() && !device.mobile()) {
 
-      if ($(".player").length) {
-        $(".player").mb_YTPlayer();
-      }
-
       /* SubMenu */
       $('#main-menu ul > li').hover(function () {
         $(this).children('ul').fadeIn(300);
@@ -211,44 +249,6 @@ if (!Array.prototype.indexOf) {
         $(this).addClass('fixed');
       });
     }
-
-    /* SlideShow
-     ==================================================================================== */
-    $('.hero-slideshow').each(function () {
-      var $slide = $(this);
-      var $img = $slide.find('img');
-
-      $img.each(function (i) {
-        var cssObj = {
-          'background-image': 'url("' + $(this).attr('src') + '")'
-        };
-
-        if (i > 0) {
-          cssObj['display'] = 'none';
-        }
-
-        $slide.append($("<div />", {
-          'class': 'slide'
-        }).css(cssObj));
-      });
-
-      if ($img.length <= 1) {
-        return;
-      }
-
-      setInterval(function () {
-        $slide.find('.slide:first').fadeOut('slow')
-          .next('.slide').fadeIn('slow')
-          .end().appendTo($slide);
-      }, 5000);
-    });
-
-    /* Notification Messages
-     ==================================================================================== */
-    $(document).on('click', '.successmsg,.errormsg,.notice,.general', function () {
-      var $this = $(this);
-      $this.fadeOut();
-    });
 
     /* Portfolio Images
      ==================================================================================== */
@@ -573,55 +573,6 @@ if (!Array.prototype.indexOf) {
       google.maps.event.addDomListener(window, 'load', init);
     }
 
-    /* Theme Tabs
-     ==================================================================================== */
-    $('.tabs').each(function () {
-      var $tabLis = $(this).find('li');
-      var $tabContent = $(this).next('.tab-content-wrap').find('.tab-content');
-      $tabContent.hide();
-      $tabLis.first().addClass('active').show();
-      $tabContent.first().show();
-    });
-
-    $('.tabs').on('click', 'li', function (e) {
-      var $this = $(this);
-      var parentUL = $this.parent();
-      var scrollparentURL = $this.parent();
-
-      var tabContent = scrollparentURL.next('.tab-content-wrap');
-      parentUL.children().removeClass('active');
-      $this.addClass('active');
-
-      tabContent.find('.tab-content').hide();
-      var showById = $($this.find('a').attr('href'));
-      tabContent.find(showById).fadeIn();
-      e.preventDefault();
-    });
-
-    /* Theme Accordion
-     ==================================================================================== */
-    $('.accordion').on('click', '.title', function (event) {
-      event.preventDefault();
-      var $this = $(this);
-
-      if ($this.closest('.accordion').hasClass('toggle')) {
-        if ($this.hasClass('active')) {
-          $this.next().slideUp('normal');
-          $this.removeClass("active");
-        }
-      } else {
-        $this.closest('.accordion').find('.active').next().slideUp('normal');
-        $this.closest('.accordion').find('.title').removeClass("active");
-      }
-
-      if ($this.next().is(':hidden') === true) {
-        $this.next().slideDown('normal');
-        $this.addClass("active");
-      }
-    });
-    $('.accordion .contents').hide();
-    $('.accordion .active').next().slideDown('normal');
-
     /* WOW plugin triggers animation.css on scroll
      ================================================== */
     var wow = new WOW(
@@ -631,15 +582,6 @@ if (!Array.prototype.indexOf) {
         mobile: false  // trigger animations on mobile devices (true is default)
       }
     );
-
-    /* Share Icons
-     ==================================================================================== */
-    $('.share').socShare({
-      facebook: '.soc-fb',
-      twitter: '.soc-tw',
-      google_plus: '.soc-gplus',
-      pinterest: '.soc-pin'
-    });
 
     /* Simple Countdown Timer - change belows date to specific one you want.
      ==================================================================================== */
