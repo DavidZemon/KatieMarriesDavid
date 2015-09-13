@@ -524,23 +524,26 @@
                 </div>
 
                 <div class="column six" ng-class="{error: app.rsvpForm.name.$invalid && app.rsvpForm.name.$dirty}">
-                  <label for="name">Name(s) of Guest(s)</label>
+                  <label for="name" data-tooltip title="First names of guests attending">Name(s) of Guest(s)</label>
                   <input type="text" id="name" name="name" placeholder="Amy, Rory, River" ng-model="app.rsvp.names"
                          ng-minlength="2" ng-required="true" ng-disabled="app.loading">
                 </div>
                 <div class="column six"
                      ng-class="{error: app.rsvpForm.address.$invalid && app.rsvpForm.address.$dirty}">
-                  <label for="address">Street Address</label>
+                  <label for="address" data-tooltip
+                         title="First two words of your address only, such as '123 Cherry'">Street Address</label>
                   <input type="text" id="address" name="address" placeholder="1600 Pennsylvania"
                          ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+.*$'" ng-required="true"
                          ng-disabled="app.loading">
                 </div>
                 <div class="column six" ng-class="{error: app.rsvpForm.email.$invalid && app.rsvpForm.email.$dirty}">
-                  <label for="email">Email</label>
+                  <label for="email" data-tooltip title="[Optional] Used if we have questions about your RVSP">
+                    Email
+                  </label>
                   <input type="text" id="email" name="email" placeholder="amy@gallifrey.net" ng-model="app.rsvp.email"
                          ng-required="false" ng-pattern="'^.+@.+\\..+$'" ng-disabled="app.loading">
                 </div>
-                <div class="column six"
+                <div class="column six" data-tooltip title="Number of guests attending (dropdown)"
                      ng-class="{error: app.rsvpForm.persons.$invalid && app.rsvpForm.$submitted}">
                   <label for="persons">Number of guests</label>
                   <select name="persons" id="persons" ng-model="app.rsvp.count" ng-required="true"
