@@ -18,6 +18,16 @@ function DetailsCtrl($routeParams, GuestList) {
   this.GuestList = GuestList;
   this.guestListId = $routeParams.guestListId;
 
+  this.rsvpReceivedOptions = {
+    'Yes': true,
+    'No': false
+  };
+  this.goingOptions = {
+    "Don't know": null,
+    'Yes': true,
+    'No': false
+  };
+
   this.loadGuest();
 }
 
