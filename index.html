@@ -22,6 +22,8 @@
 
     <!-- CSS
     ================================================== -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/grid.css" media="all">
     <link rel="stylesheet" href="css/magnific-popup.css" media="all">
     <link rel="stylesheet" href="css/font-awesome.min.css" media="all">
@@ -525,26 +527,6 @@
           <div class="container smaller">
             <div class="row">
               <form name="app.rsvpForm">
-                <!-- Alerts -->
-                <div class="alert alert-success" role="alert" ng-show="app.success && app.rsvp.going">
-                  <button type="button" class="close" ng-click="app.success = false">&times;</button>
-                  <b>Success!</b> Your RSVP for {{ app.submittedCount }}
-                  guest{{ app.submittedCount > 1 ? 's' : '' }} has been received!
-                </div>
-                <div class="alert alert-success" role="alert" ng-show="app.success && !app.rsvp.going">
-                  <button type="button" class="close" ng-click="app.success = false">&times;</button>
-                  <b>Success!</b> Sorry to hear you won't be joining us. Thank you for your RSVP.
-                </div>
-                <div class="alert alert-warning" role="alert" ng-show="app.failure">
-                  <button type="button" class="close" ng-click="app.failure = false">&times;</button>
-                  <b>Failure!</b> We're <i>very</i> sorry, but something went wrong. Please email
-                  <a href="mailto:david@zemon.name">david@zemon.name</a> with your RSVP.
-                </div>
-                <div class="alert alert-info" role="alert" ng-show="app.errorMessage">
-                  <button type="button" class="close" ng-click="app.errorMessage = false">&times;</button>
-                  <b>Info</b> {{ app.errorMessage }}
-                </div>
-
                 <div class="column six" ng-class="{error: app.rsvpForm.name.$invalid && app.rsvpForm.name.$dirty}">
                   <label for="name" data-tooltip title="First names of guests attending">Name(s) of Guest(s)</label>
                   <input type="text" id="name" name="name" placeholder="Amy, Rory, River" ng-model="app.rsvp.names"
@@ -580,7 +562,8 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <div ng-hide="app.loading">
+
+                <div ng-hide="app.loading || app.success">
                   <div class="column six">
                     <input type="submit" value="Decline with regret" ng-click="app.submit(false)">
                   </div>
@@ -595,6 +578,28 @@
                          aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                       <span class="sr-only">Sending RSVP...</span>
                     </div>
+                  </div>
+                </div>
+
+                <!-- Alerts -->
+                <div class="column twelve">
+                  <div class="alert alert-success" role="alert" ng-show="app.success && app.rsvp.going">
+                    <button type="button" class="close" ng-click="app.success = false">&times;</button>
+                    <b>Success!</b> Your RSVP for {{ app.submittedCount }} guest{{ app.submittedCount > 1 ? 's' : '' }}
+                    has been received!
+                  </div>
+                  <div class="alert alert-success" role="alert" ng-show="app.success && !app.rsvp.going">
+                    <button type="button" class="close" ng-click="app.success = false">&times;</button>
+                    <b>Success!</b> Sorry to hear you won't be joining us. Thank you for your RSVP.
+                  </div>
+                  <div class="alert alert-warning" role="alert" ng-show="app.failure">
+                    <button type="button" class="close" ng-click="app.failure = false">&times;</button>
+                    <b>Failure!</b> We're <i>very</i> sorry, but something went wrong. Please email
+                    <a href="mailto:david@zemon.name">david@zemon.name</a> with your RSVP.
+                  </div>
+                  <div class="alert alert-info" role="alert" ng-show="app.errorMessage">
+                    <button type="button" class="close" ng-click="app.errorMessage = false">&times;</button>
+                    <b>Info</b> {{ app.errorMessage }}
                   </div>
                 </div>
 
