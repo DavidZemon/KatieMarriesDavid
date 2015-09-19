@@ -2658,6 +2658,94 @@ ul.double-angle li:before {
         transition: all .3s cubic-bezier(0.585, -.6, .43, 1.65)
     }
 }
+
+/* ===========================================================
+    25.  Lodging
+============================================================ */
+
+#lodging h3.section-title:before {
+  margin-left: -26px;
+  font-size: 56px;
+}
+
+#lodging h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  margin: 15px 0;
+  color: #D9C6B1;
+  text-align: center;
+}
+
+.lodging-image li {
+  list-style: none;
+  display: inline-block;
+  align-content: center;
+}
+
+.lodging-image li:first-child {
+  margin-left: 0;
+}
+
+.lodging-image li:last-child {
+  margin-right: 0;
+}
+
+.lodging-image img {
+  opacity: 0.3;
+  max-width: 150px;
+  alignment: center;
+}
+
+.lodging-image img.active {
+  opacity: 1;
+}
+
+.lodging-image a {
+  color: #2750ff;
+  text-align: center;
+}
+
+/* ===========================================================
+    25.  Recreational
+============================================================ */
+
+#recreation h3.section-title:before {
+  margin-left: -26px;
+  font-size: 56px;
+}
+
+#recreation h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  margin: 15px 0;
+  color: #D9C6B1;
+  text-align: center;
+}
+
+.recreation-image li {
+  list-style: none;
+  display: inline-block;
+  align-content: center;
+}
+
+.recreation-image li:first-child {
+  margin-left: 0;
+}
+
+.recreation-image li:last-child {
+  margin-right: 0;
+}
+
+.recreation-image img {
+  opacity: 0.3;
+  max-width: 150px;
+  alignment: center;
+}
+
+.recreation-image img.active {
+  opacity: 1;
+}
+
 /* #This is for Mobiles
 ================================================== */
 

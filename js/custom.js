@@ -18,6 +18,11 @@ function AppCtrl(Rsvp) {
   this.chris = true;
   this.kevin = false;
   this.matt = false;
+
+  this.hiHotel = true;
+  this.bhHotel = false;
+  this.miHotel = false;
+  this.asHotel = false;
 }
 
 AppCtrl.prototype.resetRsvp = function () {
@@ -55,11 +60,32 @@ AppCtrl.prototype.submit = function (going) {
   }
 };
 
-AppCtrl.prototype.bridesmaid = function (maid) {
+AppCtrl.prototype.hotel = function (hotel) {
+  this.hiHotel = false;
+  this.bhHotel = false;
+  this.miHotel = false;
+  this.asHotel = false;
+  switch (hotel) {
+    case 'hiHotel':
+      this.hiHotel = true;
+      break;
+    case 'bhHotel':
+      this.bhHotel = true;
+      break;
+    case 'miHotel':
+      this.miHotel = true;
+      break;
+    case 'asHotel':
+      this.asHotel = true;
+      break;
+  }
+};
+
+AppCtrl.prototype.bridesmaid = function (bridesmaid) {
   this.keeley = false;
   this.mandy = false;
   this.emily = false;
-  switch (maid) {
+  switch (bridesmaid) {
     case 'keeley':
       this.keeley = true;
       break;
