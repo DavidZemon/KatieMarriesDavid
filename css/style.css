@@ -192,6 +192,7 @@ section section {
 .spacer {
     height: 80px;
 }
+
 .pattern, #wedding-events .timeline .column.heart:after {
   background: #faf8f0 url(../images/bgs/BG-halftone.png) repeat;
 }
