@@ -1234,7 +1234,7 @@ a.button i {
     z-index: 9;
 }
 #couple .fname {
-    color: #D9C6B1;
+    color: #f7ebdd;
     font-family: 'Playfair Display', serif;
     font-size: 64px;
     text-transform: uppercase;
@@ -1790,7 +1790,7 @@ a.button i {
 .form label {
     text-transform: uppercase;
     font-weight: 700;
-    color: #D9C6B1;
+    color: #D9F6B1;
 }
 .form input[type="text"], .form select, .form input[type="number"] {
     width: 100%;
@@ -1841,7 +1841,7 @@ select {
     color: #fff;
 }
 .form input[type="submit"].color:hover {
-    background-color: #f08583;
+    background-color: #f08583000;
 }
 .form textarea {
     background-color: #ffffff;
