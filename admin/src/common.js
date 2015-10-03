@@ -19,7 +19,7 @@ function CapitalizeFilter() {
  *****************/
 angular.module('admin.constants', [])
 //.constant('SERVICE_URL', 'http://localhost:8080/KatieMarriesDavid/client/admin/server')
-  .constant('SERVICE_URL', 'http://katiemarriesdavid.com:8080/admin/server')
+  .constant('SERVICE_URL', 'http://david.zemon.name:8080/admin/server')
 ;
 
 /****************
