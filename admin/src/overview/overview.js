@@ -50,6 +50,10 @@ OverviewCtrl.prototype.go = function (guest) {
   this.$location.path('/details/' + guest.guestListId);
 };
 
+OverviewCtrl.prototype.goNew = function () {
+  this.$location.path('/new');
+};
+
 OverviewCtrl.prototype.clearFilter = function () {
   this.filter = {};
 };

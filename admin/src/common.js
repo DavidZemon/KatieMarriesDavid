@@ -52,6 +52,12 @@ function GuestList($resource, SERVICE_URL) {
       headers: {
         'Authorization': CryptoJS.MD5(new Date(1958, 7, 10).toJSON())
       }
+    },
+    'create': {
+      method: 'PUT',
+      headers: {
+        'Authorization': CryptoJS.MD5(new Date(1958, 7, 10).toJSON())
+      }
     }
   })
 }

@@ -1,0 +1,116 @@
+<div class="container">
+  <h1>Add new guest</h1>
+
+  <form class="form-group">
+    <!-- Salutation -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="salutation">Salutation</label>
+        <input ng-required="true" class="form-control" id="salutation" ng-model="new.guest.salutation" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Last name -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="lastName">Last Name</label>
+        <input ng-required="true" class="form-control" id="lastName" ng-model="new.guest.lastName" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Guest names -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="guestNames">Guest Names</label>
+        <input ng-required="true" class="form-control" id="guestNames" ng-model="new.guest.guestNames" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Street -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="street">Street</label>
+        <input ng-required="true" class="form-control" id="street" ng-model="new.guest.street" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- City -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="city">City</label>
+        <input ng-required="true" class="form-control" id="city" ng-model="new.guest.city" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- State -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="state">State</label>
+        <input ng-required="true" class="form-control" id="state" ng-model="new.guest.state" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Zip -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="zip">Zip Code</label>
+        <input ng-required="true" class="form-control" id="zip" ng-model="new.guest.zip" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Count -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="count">Count</label>
+        <input ng-required="true" class="form-control" id="count" ng-model="new.guest.count" type="text">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Attending for -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="attendingFor">Attending For</label>
+        <select ng-required="true" class="form-control" id="attendingFor" ng-model="new.guest.attendingFor">
+          <option>KATIE</option>
+          <option>DAVID</option>
+        </select>
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Relation -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="relation">Relation</label>
+        <select ng-required="true" class="form-control" id="relation" ng-model="new.guest.relation">
+          <option
+            ng-repeat="relation in new.relations">{{relation}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit" ng-click="new.create()">Save</button>
+    </div>
+  </form>
+</div>
