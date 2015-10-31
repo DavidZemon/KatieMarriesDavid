@@ -1,12 +1,13 @@
 <div class="container">
   <h1>Add new guest</h1>
 
-  <form class="form-group">
+  <form class="form-group" name="form">
     <!-- Salutation -->
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="salutation">Salutation</label>
-        <input ng-required="true" class="form-control" id="salutation" ng-model="new.guest.salutation" type="text">
+        <input required class="form-control" id="salutation" ng-model="new.guest.salutation" type="text"
+               placeholder="Mr. & Mrs. John Doe">
       </div>
     </div>
 
@@ -16,7 +17,7 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="lastName">Last Name</label>
-        <input ng-required="true" class="form-control" id="lastName" ng-model="new.guest.lastName" type="text">
+        <input required class="form-control" id="lastName" ng-model="new.guest.lastName" type="text" placeholder="Doe">
       </div>
     </div>
 
@@ -26,7 +27,8 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="guestNames">Guest Names</label>
-        <input ng-required="true" class="form-control" id="guestNames" ng-model="new.guest.guestNames" type="text">
+        <input required class="form-control" id="guestNames" ng-model="new.guest.guestNames" type="text"
+               placeholder="John, Jane">
       </div>
     </div>
 
@@ -36,7 +38,8 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="street">Street</label>
-        <input ng-required="true" class="form-control" id="street" ng-model="new.guest.street" type="text">
+        <input required class="form-control" id="street" ng-model="new.guest.street" type="text"
+               placeholder="123 Cherry St">
       </div>
     </div>
 
@@ -46,7 +49,7 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="city">City</label>
-        <input ng-required="true" class="form-control" id="city" ng-model="new.guest.city" type="text">
+        <input required class="form-control" id="city" ng-model="new.guest.city" type="text" placeholder="Omaha">
       </div>
     </div>
 
@@ -56,7 +59,8 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="state">State</label>
-        <input ng-required="true" class="form-control" id="state" ng-model="new.guest.state" type="text">
+        <input class="form-control" id="state" ng-model="new.guest.state" type="text" placeholder="NE"
+               ng-pattern="/^[A-Za-z]{2}$/" ng-required="!new.guest.country">
       </div>
     </div>
 
@@ -66,7 +70,19 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="zip">Zip Code</label>
-        <input ng-required="true" class="form-control" id="zip" ng-model="new.guest.zip" type="text">
+        <input required class="form-control" id="zip" ng-model="new.guest.zip" type="text"
+               placeholder="68107" ng-pattern="/^\d{5}$/">
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- Country -->
+    <div class="row">
+      <div class="input-group">
+        <label class="input-group-addon" for="country">Country</label>
+        <input ng-required="!new.guest.state" class="form-control" id="country" ng-model="new.guest.country" type="text"
+               placeholder="USA">
       </div>
     </div>
 
@@ -76,7 +92,8 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="count">Count</label>
-        <input ng-required="true" class="form-control" id="count" ng-model="new.guest.count" type="text">
+        <input required class="form-control" id="count" ng-model="new.guest.count" type="number" min="1"
+               placeholder="2">
       </div>
     </div>
 
@@ -86,7 +103,7 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="attendingFor">Attending For</label>
-        <select ng-required="true" class="form-control" id="attendingFor" ng-model="new.guest.attendingFor">
+        <select required class="form-control" id="attendingFor" ng-model="new.guest.attendingFor">
           <option>KATIE</option>
           <option>DAVID</option>
         </select>
@@ -99,7 +116,7 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="relation">Relation</label>
-        <select ng-required="true" class="form-control" id="relation" ng-model="new.guest.relation">
+        <select required class="form-control" id="relation" ng-model="new.guest.relation">
           <option ng-repeat="relation in new.relations">{{relation}}</option>
         </select>
       </div>
@@ -108,7 +125,7 @@
     <br/>
 
     <div class="row">
-      <button class="btn btn-primary" type="submit" ng-click="new.create()">Save</button>
+      <button class="btn btn-primary" type="submit" ng-disabled="!form.$valid" ng-click="new.create()">Save</button>
     </div>
   </form>
 </div>
