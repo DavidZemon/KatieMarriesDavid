@@ -27,6 +27,16 @@ function DetailsCtrl($routeParams, GuestList) {
     'Yes': true,
     'No': false
   };
+  this.relations = [
+    'OTHER',
+    'FAMILY_ROY',
+    'FAMILY_BONNIE',
+    'FAMILY_IMMEDIATE',
+    'FAMILY_DEBBIE',
+    'FAMILY_CANDY',
+    'FRIEND',
+    'FAMILY_ART'
+  ];
 
   this.loadGuest();
 }

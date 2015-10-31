@@ -182,6 +182,7 @@
         <th ng-click="overview.setSort('city')">City</th>
         <th ng-click="overview.setSort('state')">State</th>
         <th ng-click="overview.setSort('zip')">Zip Code</th>
+        <th ng-click="overview.setSort('country')">Country</th>
         <th ng-click="overview.setSort('count')">Count</th>
         <th>Going?</th>
         <th>RSVP Received</th>
@@ -201,9 +202,11 @@
         <td>{{ guest.city | capitalize:true }}</td>
         <td>{{ guest.state | uppercase }}</td>
         <td>{{ guest.zip }}</td>
+        <td ng-show="guest.country === 'USA'">USA</td>
+        <td ng-hide="guest.country === 'USA'">{{ guest.country | capitalize:true }}</td>
         <td>{{ guest.count }}</td>
-        <td><input type="checkbox" ng-model="guest.going" ng-disabled="true"></td>
-        <td><input type="checkbox" ng-model="guest.rsvpReceived" ng-disabled="true"></td>
+        <td><input type="checkbox" ng-model="guest.going" disabled></td>
+        <td><input type="checkbox" ng-model="guest.rsvpReceived" disabled></td>
         <td>{{ guest.attendingFor | capitalize:true }}</td>
         <td>{{ guest.relation | capitalize:true }}</td>
       </tr>

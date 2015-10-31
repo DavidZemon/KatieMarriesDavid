@@ -81,8 +81,8 @@
     <div class="row">
       <div class="input-group">
         <label class="input-group-addon" for="country">Country</label>
-        <input ng-required="!new.guest.state" class="form-control" id="country" ng-model="new.guest.country" type="text"
-               placeholder="USA">
+        <input ng-required="!new.guest.state || 'USA' === new.guest.country" class="form-control" id="country"
+               ng-model="new.guest.country" type="text" placeholder="USA">
       </div>
     </div>
 
