@@ -193,22 +193,22 @@
     <tbody>
       <tr ng-repeat="guest in overview.guests | orderBy:overview.sortType:overview.sortReverse | filter:overview.filter"
           ng-click="overview.go(guest)">
-        <td>{{ guest.salutation | capitalize:true }}</td>
-        <td>{{ guest.lastName | capitalize:true }}</td>
-        <td>{{ guest.insideEnvelope | capitalize:true }}</td>
-        <td>{{ guest.guestNames | capitalize:true }}</td>
-        <td>{{ guest.guestNamesInRsvp | capitalize:true }}</td>
-        <td>{{ guest.street | capitalize:true }}</td>
-        <td>{{ guest.city | capitalize:true }}</td>
-        <td>{{ guest.state | uppercase }}</td>
+        <td>{{ guest.salutation }}</td>
+        <td>{{ guest.lastName }}</td>
+        <td>{{ guest.insideEnvelope }}</td>
+        <td>{{ guest.guestNames }}</td>
+        <td>{{ guest.guestNamesInRsvp }}</td>
+        <td>{{ guest.street }}</td>
+        <td>{{ guest.city }}</td>
+        <td>{{ guest.state }}</td>
         <td>{{ guest.zip }}</td>
         <td ng-show="guest.country === 'USA'">USA</td>
-        <td ng-hide="guest.country === 'USA'">{{ guest.country | capitalize:true }}</td>
+        <td ng-hide="guest.country === 'USA'">{{ guest.country }}</td>
         <td>{{ guest.count }}</td>
         <td><input type="checkbox" ng-model="guest.going" disabled></td>
         <td><input type="checkbox" ng-model="guest.rsvpReceived" disabled></td>
-        <td>{{ guest.attendingFor | capitalize:true }}</td>
-        <td>{{ guest.relation | capitalize:true }}</td>
+        <td>{{ guest.attendingFor }}</td>
+        <td>{{ guest.relation }}</td>
       </tr>
     </tbody>
   </table>
