@@ -12,7 +12,7 @@
         <div class="input-group">
           <label class="input-group-addon" for="salutation">Salutation</label>
           <input required class="form-control" id="salutation" ng-model="details.guest.salutation" type="text"
-                 placeholder="Mr. & Mrs. John Doe">
+                 placeholder="Mr. and Mrs. John Doe">
         </div>
       </div>
 
@@ -24,6 +24,17 @@
           <label class="input-group-addon" for="lastName">Last Name</label>
           <input required class="form-control" id="lastName" ng-model="details.guest.lastName" type="text"
                  placeholder="Doe">
+        </div>
+      </div>
+
+      <br/>
+
+      <!-- Inside Envelope -->
+      <div class="row">
+        <div class="input-group">
+          <label class="input-group-addon" for="insideEnvelope">Inside Envelope</label>
+          <input required class="form-control" id="insideEnvelope" ng-model="details.guest.insideEnvelope" type="text"
+                 placeholder="Aunt Jane and Uncle John">
         </div>
       </div>
 
@@ -61,6 +72,17 @@
 
       <br/>
 
+      <!-- Street 2 -->
+      <div class="row">
+        <div class="input-group">
+          <label class="input-group-addon" for="street2">Street Line 2</label>
+          <input class="form-control" id="street2" ng-model="details.guest.streetLine2" type="text"
+                 placeholder="Apt 2">
+        </div>
+      </div>
+
+      <br/>
+
       <!-- City -->
       <div class="row">
         <div class="input-group">
@@ -87,7 +109,7 @@
         <div class="input-group">
           <label class="input-group-addon" for="zip">Zip Code</label>
           <input required class="form-control" id="zip" ng-model="details.guest.zip" type="text"
-                 placeholder="68107" ng-pattern="/^\d{5}$/">
+                 placeholder="68107" ng-pattern="/^\d{4,5}$/">
         </div>
       </div>
 

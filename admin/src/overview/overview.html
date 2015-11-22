@@ -177,13 +177,14 @@
         <th ng-click="overview.setSort('lastName')">Last Name</th>
         <th ng-click="overview.setSort('insideEnvelope')">Inside Envelope</th>
         <th ng-click="overview.setSort('guestNames')">Guest Names</th>
-        <th ng-click="overview.setSort('guestNamesInRsvp')">Names in RSVP</th>
         <th ng-click="overview.setSort('street')">Street</th>
+        <th ng-click="overview.setSort('streetLine2')">Street Line 2</th>
         <th ng-click="overview.setSort('city')">City</th>
         <th ng-click="overview.setSort('state')">State</th>
         <th ng-click="overview.setSort('zip')">Zip Code</th>
         <th ng-click="overview.setSort('country')">Country</th>
         <th ng-click="overview.setSort('count')">Count</th>
+        <th ng-click="overview.setSort('guestNamesInRsvp')">Names in RSVP</th>
         <th>Going?</th>
         <th>RSVP Received</th>
         <th ng-click="overview.setSort('attendingFor')">Attending For</th>
@@ -197,14 +198,15 @@
         <td>{{ guest.lastName }}</td>
         <td>{{ guest.insideEnvelope }}</td>
         <td>{{ guest.guestNames }}</td>
-        <td>{{ guest.guestNamesInRsvp }}</td>
         <td>{{ guest.street }}</td>
+        <td>{{ guest.streetLine2 }}</td>
         <td>{{ guest.city }}</td>
         <td>{{ guest.state }}</td>
         <td>{{ guest.zip }}</td>
         <td ng-show="guest.country === 'USA'">USA</td>
         <td ng-hide="guest.country === 'USA'">{{ guest.country }}</td>
         <td>{{ guest.count }}</td>
+        <td>{{ guest.guestNamesInRsvp }}</td>
         <td><input type="checkbox" ng-model="guest.going" disabled></td>
         <td><input type="checkbox" ng-model="guest.rsvpReceived" disabled></td>
         <td>{{ guest.attendingFor }}</td>
