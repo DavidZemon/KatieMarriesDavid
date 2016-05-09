@@ -15,9 +15,9 @@ function AppCtrl(Rsvp) {
   this.keeley = true;
   this.mandy = false;
   this.emily = false;
-  this.chris = true;
-  this.kevin = false;
+  this.kevin = true;
   this.matt = false;
+  this.adam = false;
 
   this.hiHotel = true;
   this.bhHotel = false;
@@ -99,19 +99,19 @@ AppCtrl.prototype.bridesmaid = function (bridesmaid) {
 };
 
 AppCtrl.prototype.groomsmen = function (dude) {
-  this.chris = false;
   this.kevin = false;
   this.matt = false;
+  this.adam = false;
 
   switch (dude) {
-    case 'chris':
-      this.chris = true;
-      break;
     case 'kevin':
       this.kevin = true;
       break;
     case 'matt':
       this.matt = true;
+      break;
+    case 'adam':
+      this.adam = true;
       break;
   }
 };

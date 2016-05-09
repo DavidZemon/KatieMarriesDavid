@@ -339,10 +339,6 @@
           <!-- Images -->
           <div class="people-image">
             <li>
-              <img ng-class="{active: app.chris}" ng-click="app.groomsmen('chris')"
-                   src="images/important-people/seto.jpg" alt="chris"/>
-            </li>
-            <li>
               <img ng-class="{active: app.kevin}" ng-click="app.groomsmen('kevin')"
                    src="images/important-people/kevin1.png" alt="kevin"/>
             </li>
@@ -350,20 +346,13 @@
               <img ng-class="{active: app.matt}" ng-click="app.groomsmen('matt')"
                    src="images/important-people/matt2.png" alt="matt"/>
             </li>
+            <li>
+              <img ng-class="{active: app.adam}" ng-click="app.groomsmen('adam')"
+                   src="images/important-people/adam.png" alt="adam"/>
+            </li>
           </div>
 
           <!-- Text -->
-          <div id="chris" ng-show="app.chris">
-            <h2>Chris Seto</h2>
-
-            <div class="story">
-              <p>Chris met David at Missouri S&T during his freshman year. David helped Chris with his computer
-                engineering homework, and the two became friends over their mutual interest in electronics and Chinese
-                food. Chris is finishing up his last year at Missouri S&T and hopes to find a robotics engineering job
-                on the California coast. Chris was one of the first people to meet Katie after she began dating David
-                and is excited to see their relationship take the next big step!</p>
-            </div>
-          </div>
           <div id="kevin" ng-show="app.kevin">
             <h2>Kevin Zemon</h2>
 
@@ -376,6 +365,15 @@
 
             <div class="story">
               <p>Matt is Katie's older brother.  After high school, he moved to Atlanta, where he studied liberal arts and industrial engineering.  He is now a program manager for an IT consulting firm and focuses on process improvement.  Matt congratulates Katie and David and looks forward to the celebration.</p>
+            </div>
+          </div>
+          <div id="adam" ng-show="app.adam">
+            <h2>Adam Holt</h2>
+
+            <div class="story">
+              <p>Adam met Katie at a family Memorial Day party five years ago and has joined the bride and groom on
+                several family vacations. Adam grew up and currently lives in Atlanta where he is an analyst working
+                in commercial real estate finance. Adam sends a big Mazel Tov to Katie and David on their wedding.</p>
             </div>
           </div>
         </div>
