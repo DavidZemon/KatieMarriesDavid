@@ -76,7 +76,6 @@
             <li><a href="#attractions">Attractions</a></li>
             <li><a href="#wedding-gallery">Gallery</a></li>
             <li><a href="#gift-registry">Gifts</a></li>
-            <li><a href="#contact">RSVP</a></li>
           </ul>
         </nav>
         <a href="#" id="menu-toggle-wrapper">
@@ -90,10 +89,9 @@
   <div class="overlay-dark"></div>
   <div class="container">
     <div class="hero-inner">
-      <h1>We’re getting married!</h1>
+      <h1>We’re married!</h1>
 
       <div class="info">
-        <div id="countdown"></div>
         <span class="date">on 14 May 2016, Mobile, AL</span>
       </div>
       <a href="#couple" class="mouse scrollTo"><i class="fa fa-long-arrow-down"></i></a>
@@ -103,12 +101,6 @@
 <!-- #Hero Section Ends -->
 
 <section id="home-content" class="top-menu">
-
-  <!-- RSVP Now -->
-  <section id="invitation" class="pattern">
-    <a id="to-rsvp" href="#contact" class="button scrollTo">RSVP NOW</a>
-  </section>
-  <!-- #RSVP Now -->
 
   <!-- Couple Images -->
   <section id="couple">
@@ -662,102 +654,6 @@
       as we won't be able to bring them with us from Mobile.</p>
   </section>
   <!-- #Gift Registry Section Ends -->
-
-  <!-- RSVP Section -->
-  <section id="contact" class="bgcolor">
-    <header class="section-header">
-      <h3 class="section-title">SIGN YOUR RSVP</h3>
-
-      <p class="section-tagline">Please RSVP before 25 April 2016.</p>
-    </header>
-
-    <div class="form">
-      <div class="container smaller">
-        <div class="row">
-          <form name="app.rsvpForm">
-            <div class="column six" ng-class="{error: app.rsvpForm.name.$invalid && app.rsvpForm.name.$dirty}">
-              <label for="name" data-tooltip title="First names of guests attending">Name(s) of Guest(s)</label>
-              <input type="text" id="name" name="name" placeholder="Amy, Rory, River" ng-model="app.rsvp.names"
-                     ng-minlength="2" ng-required="true" ng-disabled="app.loading">
-            </div>
-            <div class="column six"
-                 ng-class="{error: app.rsvpForm.address.$invalid && app.rsvpForm.address.$dirty}">
-              <label for="address" data-tooltip
-                     title="First two words of your address only, such as '123 Cherry'">Street Address</label>
-              <input type="text" id="address" name="address" placeholder="1600 Pennsylvania"
-                     ng-model="app.rsvp.street" ng-pattern="'^[A-Za-z\\d]+\\s+[A-Za-z\\d]+.*$'" ng-required="true"
-                     ng-disabled="app.loading">
-            </div>
-            <div class="column six" ng-class="{error: app.rsvpForm.email.$invalid && app.rsvpForm.email.$dirty}">
-              <label for="email" data-tooltip title="[Optional] Used if we have questions about your RVSP">
-                Email
-              </label>
-              <input type="text" id="email" name="email" placeholder="amy@gallifrey.net" ng-model="app.rsvp.email"
-                     ng-required="false" ng-pattern="'^.+@.+\\..+$'" ng-disabled="app.loading">
-            </div>
-            <div class="column six" data-tooltip title="Number of guests attending (dropdown)"
-                 ng-class="{error: app.rsvpForm.persons.$invalid && app.rsvpForm.$submitted}">
-              <label for="persons">Number of guests</label>
-              <select name="persons" id="persons" ng-model="app.rsvp.count" ng-required="true"
-                      ng-disabled="app.loading">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">Four</option>
-                <option value="5">Five</option>
-                <option value="6">Six</option>
-              </select>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div ng-hide="app.loading || app.success">
-              <div class="column six">
-                <input type="submit" value="Decline with regret" ng-click="app.submit(false)">
-              </div>
-              <div class="column six">
-                <input type="submit" value="Accept with pleasure" ng-click="app.submit(true)">
-              </div>
-            </div>
-
-            <div class="column twelve" ng-show="app.loading">
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45"
-                     aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                  <span class="sr-only">Sending RSVP...</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Alerts -->
-            <div class="column twelve">
-              <div class="alert alert-success" role="alert" ng-show="app.success && app.rsvp.going">
-                <button type="button" class="close" ng-click="app.success = false">&times;</button>
-                <b>Success!</b> Your RSVP for {{ app.submittedCount }} guest{{ app.submittedCount > 1 ? 's' : '' }}
-                has been received!
-              </div>
-              <div class="alert alert-success" role="alert" ng-show="app.success && !app.rsvp.going">
-                <button type="button" class="close" ng-click="app.success = false">&times;</button>
-                <b>Success!</b> Sorry to hear you won't be joining us. Thank you for your RSVP.
-              </div>
-              <div class="alert alert-warning" role="alert" ng-show="app.failure">
-                <button type="button" class="close" ng-click="app.failure = false">&times;</button>
-                <b>Failure!</b> We're <i>very</i> sorry, but something went wrong. Please email
-                <a href="mailto:david@zemon.name">david@zemon.name</a> with your RSVP.
-              </div>
-              <div class="alert alert-info" role="alert" ng-show="app.errorMessage">
-                <button type="button" class="close" ng-click="app.errorMessage = false">&times;</button>
-                <b>Info</b> {{ app.errorMessage }}
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- #Contact Section -->
 
   <!-- Footer Section -->
   <footer>
